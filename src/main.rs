@@ -3,7 +3,7 @@ use std::env;
 use aws_config::Region;
 use axum::{ extract::Extension, http::{ HeaderValue, Method }, routing::get, Router };
 use dotenvy::dotenv;
-use ore_dock_cmms_lambda::{
+use job_board_lambda::{
     config::Config,
     context::{ AppContext, ContextExtensions },
     create_schema,
@@ -18,7 +18,7 @@ use async_graphql_axum::{ GraphQLRequest, GraphQLResponse };
 use serde::Serialize;
 use tracing::{ info, error };
 
-mod auth;
+// mod auth;
 
 fn main() {
     println!("Hello, world!");

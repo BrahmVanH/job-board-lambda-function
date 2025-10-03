@@ -1,9 +1,9 @@
 // src/lib.rs
-// pub mod error;
-// pub mod models;
-// pub mod schema;
+pub mod error;
+pub mod models;
+pub mod schema;
 // pub mod db;
-// pub mod repository; // Single repository instead of services
+pub mod repository;
 // pub mod config;
 // pub mod context;
 
