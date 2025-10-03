@@ -306,6 +306,9 @@ impl DynamoDbEntity for JobPosting {
         item.insert("employer_url".to_string(), AttributeValue::S(self.employer_url.clone()));
         item.insert("address".to_string(), self.address.to_attribute_value());
 
+        // Add city as a separate field for GSI querying
+        item.insert("city".to_string(), AttributeValue::S(self.address.city.clone()));
+
         if let Some(pay) = &self.pay {
             item.insert("pay".to_string(), pay.to_attribute_value());
         }
@@ -348,6 +351,7 @@ impl DynamoDbEntity for JobPosting {
             item.insert("extra_info".to_string(), AttributeValue::S(extra_info.clone()));
         }
 
+        item.insert("expected_hours".to_string(), self.expected_hours.to_attribute_value());
         item.insert("created_at".to_string(), AttributeValue::S(self.created_at.to_string()));
         item.insert("updated_at".to_string(), AttributeValue::S(self.updated_at.to_string()));
 
